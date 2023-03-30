@@ -1,58 +1,29 @@
-## Sales Insights Data Analysis Project
+<h1 align="center">Sales-Insights [MySQL | Power BI]</h2>
 
-### Instructions to setup mysql on your local computer
+## Summary
+- An Atliq is a computer hardware and peripheral manufacture company facing issue with tracking the sales in the dynamically growing market and insights of their business.
+- Data analysis project to build power BI dashboard that can give real time sales insights.
 
-1. Follow step in this video to install mysql on your local computer
-https://www.youtube.com/watch?v=WuBcTJnIuzo
-
-1. SQL database dump is in db_dump.sql file above. Download `db_dump.sql` file to your local computer and import it as per instructions given in the tutorial video
-
-### Data Analysis Using SQL
-
-1. Show all customer records
-
-    `SELECT * FROM customers;`
-
-1. Show total number of customers
-
-    `SELECT count(*) FROM customers;`
-
-1. Show transactions for Chennai market (market code for chennai is Mark001
-
-    `SELECT * FROM transactions where market_code='Mark001';`
-
-1. Show distrinct product codes that were sold in chennai
-
-    `SELECT distinct product_code FROM transactions where market_code='Mark001';`
-
-1. Show transactions where currency is US dollars
-
-    `SELECT * from transactions where currency="USD"`
-
-1. Show transactions in 2020 join by date table
-
-    `SELECT transactions.*, date.* FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020;`
-
-1. Show total revenue in year 2020,
-
-    `SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020 and transactions.currency="INR\r" or transactions.currency="USD\r";`
-	
-1. Show total revenue in year 2020, January Month,
-
-    `SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020 and and date.month_name="January" and (transactions.currency="INR\r" or transactions.currency="USD\r");`
-
-1. Show total revenue in year 2020 in Chennai
-
-    `SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020
-and transactions.market_code="Mark001";`
+## Steps
+- **Download `db_dump.sql`** 
+- **Import it in MySql do ETL(Extract, Transform, Load)**
+- **Connect Poer BI/Tableau with MySql database.**
 
 
-Data Analysis Using Power BI
-============================
+- Used MySQL and Power BI for data cleaning and wrangling (ETL-Extract, transform , load). This was followed by currency normalization, handling invalid values etc.
+- Dashboard was created to provide sales insights such as Revenue Trend, top customers/markets for the required period.
+- An automated dashboard providing quick & latest sales insights in order to support data driven decision making
+- Sales team able to take better decisiom moreover prove 10% cost savings of total spending
 
-1. Formula to create norm_amount column
+![image](https://user-images.githubusercontent.com/127897090/228707607-f9a3a4e7-bd34-4234-a3fe-4476445821de.png)
 
-`= Table.AddColumn(#"Filtered Rows", "norm_amount", each if [currency] = "USD" or [currency] ="USD#(cr)" then [sales_amount]*75 else [sales_amount], type any)`
+## Source: Codebasics
+
+
+
+
+
+
 
 
 
