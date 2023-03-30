@@ -5,7 +5,7 @@
 - Data analysis project to build power BI dashboard that can give real time sales insights.
 
 ## Steps
-- **Download `db_dump_Version_2.sql`** 
+- **Download `db_dump_version_2.sql`** 
 - **Import it in MySql do ETL(Extract, Transform, Load)**
 - **Connect Poer BI/Tableau with MySql database.**
 
